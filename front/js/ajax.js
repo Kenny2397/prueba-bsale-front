@@ -22,10 +22,9 @@ if(!categoryActive){
 // document.querySelector('#boton').addEventListener('click', getData);
 // const API = 'https://challenge-bsale.herokuapp.com';
 
-async function getData() {
+function getData() {
     console.log('click');
-    
-    await fetch('https://challenge-bsale.herokuapp.com/api/v1/products', {
+    fetch('https://challenge-bsale.herokuapp.com/api/v1/products', {
         method: 'GET',
     })
     .then(response => response.json())
@@ -56,7 +55,7 @@ async function getData() {
     .catch(error => console.error('Error:', error));
 }
 
-async function getCategory(category) {
+function getCategory(category) {
   const lista = document.getElementById('lista');
 
     if(lista.firstChild){
@@ -64,7 +63,7 @@ async function getCategory(category) {
     }
 
 
-    await fetch('https://challenge-bsale.herokuapp.com/api/v1/categories/'+category, {
+    fetch('https://challenge-bsale.herokuapp.com/api/v1/categories/'+category, {
         method: 'GET',
     })
     .then(response => response.json())
@@ -112,7 +111,7 @@ const formSearch = document.querySelector('#form-search').addEventListener('subm
 
 });
 
-async function searchProduct(search) {
+function searchProduct(search) {
 
   const lista = document.getElementById('lista');
 
@@ -120,7 +119,7 @@ async function searchProduct(search) {
       document.getElementById("lista").removeChild(lista.firstChild);
   }
 
-  await fetch('https://challenge-bsale.herokuapp.com/api/v1/products/search/'+search.search, {
+  fetch('https://challenge-bsale.herokuapp.com/api/v1/products/search/'+search.search, {
       method: 'GET',
   })
   .then(response => response.json())
