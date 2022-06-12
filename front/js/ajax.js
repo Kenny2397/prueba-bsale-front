@@ -20,11 +20,12 @@ if(!categoryActive){
 // });
 
 // document.querySelector('#boton').addEventListener('click', getData);
-const API = 'https://challenge-bsale.herokuapp.com';
+// const API = 'https://challenge-bsale.herokuapp.com';
 
-function getData() {
+async function getData() {
     console.log('click');
-    fetch('https://challenge-bsale.herokuapp.com/api/v1/products', {
+    
+    await fetch('https://challenge-bsale.herokuapp.com/api/v1/products', {
         method: 'GET',
     })
     .then(response => response.json())
@@ -55,7 +56,7 @@ function getData() {
     .catch(error => console.error('Error:', error));
 }
 
-function getCategory(category) {
+async function getCategory(category) {
   const lista = document.getElementById('lista');
 
     if(lista.firstChild){
@@ -63,7 +64,7 @@ function getCategory(category) {
     }
 
 
-    fetch('https://challenge-bsale.herokuapp.com/api/v1/categories/'+category, {
+    await fetch('https://challenge-bsale.herokuapp.com/api/v1/categories/'+category, {
         method: 'GET',
     })
     .then(response => response.json())
@@ -111,7 +112,7 @@ const formSearch = document.querySelector('#form-search').addEventListener('subm
 
 });
 
-function searchProduct(search) {
+async function searchProduct(search) {
 
   const lista = document.getElementById('lista');
 
@@ -119,7 +120,7 @@ function searchProduct(search) {
       document.getElementById("lista").removeChild(lista.firstChild);
   }
 
-  fetch('https://challenge-bsale.herokuapp.com/api/v1/products/search/'+search.search, {
+  await fetch('https://challenge-bsale.herokuapp.com/api/v1/products/search/'+search.search, {
       method: 'GET',
   })
   .then(response => response.json())
