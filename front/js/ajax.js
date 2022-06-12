@@ -24,7 +24,7 @@ const API = 'https://challenge-bsale.herokuapp.com';
 
 function getData() {
     console.log('click');
-    fetch(API+'/api/v1/products', {
+    fetch('https://challenge-bsale.herokuapp.com/api/v1/products', {
         method: 'GET',
     })
     .then(response => response.json())
