@@ -63,7 +63,7 @@ function getCategory(category) {
     }
 
 
-    fetch(API+'/api/v1/categories/'+category, {
+    fetch('https://challenge-bsale.herokuapp.com/api/v1/categories/'+category, {
         method: 'GET',
     })
     .then(response => response.json())
@@ -119,7 +119,7 @@ function searchProduct(search) {
       document.getElementById("lista").removeChild(lista.firstChild);
   }
 
-  fetch(API+'/api/v1/products/search/'+search.search, {
+  fetch('https://challenge-bsale.herokuapp.com/api/v1/products/search/'+search.search, {
       method: 'GET',
   })
   .then(response => response.json())
